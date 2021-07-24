@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import Header from "./Header";
 
 const Question = ({ quizQuestions, quizOptions, images, setQuesAnswered, callBack, id, choice }) => {
@@ -13,7 +12,7 @@ const Question = ({ quizQuestions, quizOptions, images, setQuesAnswered, callBac
                 </div>
                 <div className="options" >
                     {
-                        quizOptions.map((value, index) =>
+                        quizOptions.map((value) =>
                         (<>
                             <input key={value}
                                 type="radio"
@@ -21,7 +20,7 @@ const Question = ({ quizQuestions, quizOptions, images, setQuesAnswered, callBac
                                 name="radioBtn"
                                 value={value}
                                 onChange={
-                                    () => { callBack(value); console.log(value) }}
+                                    () => { callBack(value); console.log(value); }}
                             />
                             <label htmlFor="mood"
                                 key={value.toUpperCase()}

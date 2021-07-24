@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import { useState } from "react";
 import Header from "./Header";
 import Question from "./Question";
+import Suggestions from "./Suggestions";
 
 const App = () => {
     const [quizStarted, setQuizStarted] = useState(false);
@@ -57,31 +58,42 @@ const App = () => {
                 />
             )
         } else if (firstQuesAnswered) {
-            return (
-                <Question
-                    quizQuestions={quizQuestions[1]}
-                    quizOptions={quizOptions[1]}
-                    images={images[1]}
-                    setQuesAnswered={setSecondQuesAnswered}
-                    callBack={setLocation}
-                    id="location"
-                    choice={location}
-                />
-            )
-        } else if (secondQuesAnswered) {
-            return (
-                <Question
-                    quizQuestions={quizQuestions[2]}
-                    quizOptions={quizOptions[2]}
-                    images={images[2]}
-                    setQuesAnswered={setThirdQuesAnswered}
-                    callBack={setSocialize}
-                    id="friends"
-                    choice={socialize}
-                />
-            )
+            if (secondQuesAnswered === false) {
+                return (
+                    <Question
+                        quizQuestions={quizQuestions[1]}
+                        quizOptions={quizOptions[1]}
+                        images={images[1]}
+                        setQuesAnswered={setSecondQuesAnswered}
+                        callBack={setLocation}
+                        id="location"
+                        choice={location}
+                    />
+                )
+            } else if (secondQuesAnswered) {
+                if (thirdQuesAnswered === false) {
+                    return (
+                        <Question
+                            quizQuestions={quizQuestions[2]}
+                            quizOptions={quizOptions[2]}
+                            images={images[2]}
+                            setQuesAnswered={setThirdQuesAnswered}
+                            callBack={setSocialize}
+                            id="friends"
+                            choice={socialize}
+                        />
+                    )
+                } else if (thirdQuesAnswered) {
+                    return (
+                        <Suggestions mood={mood} location={location} socialize={socialize} />
+                    )
+                }
+
+            }
+
         }
     }
 }
 
 ReactDOM.render(<StrictMode><App /></StrictMode>, document.getElementById("root"));
+export default App;
