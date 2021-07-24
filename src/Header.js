@@ -10,8 +10,9 @@ const Header = () => {
                 <p>Friday evening</p>
             </div>
             <div className="scrollBtnDiv">
-                <button className="scrollBtn">Scroll Down</button>
+                <div className="scrollBtn"></div>
             </div>
+            <div className="scroll">Scroll Down</div>
         </header>
     )
 }

@@ -29,17 +29,17 @@ const App = () => {
             <div className="wrapper">
                 <Header />
                 <div className="container">
-                    <div>
+                    <div className="heading2Div">
                         <h2>Take a quiz to plan your Friday!</h2>
                     </div>
-                    <div>
-                        <img src="https://images.pexels.com/photos/7262770/pexels-photo-7262770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="friday night image" />
+                    <div className="imgDiv">
+                        <img className="mainImg" src="https://images.pexels.com/photos/7262770/pexels-photo-7262770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="friday night image" />
                     </div>
-                    <div>
+                    <div className="paraDiv">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.</p>
                     </div>
-                    <div>
-                        <button type="button" onClick={handleStartQuiz}>Start Quiz</button>
+                    <div className="startBtn">
+                        <button className="quizBtn" type="button" onClick={handleStartQuiz}>Start Quiz</button>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,6 @@ const App = () => {
                         <Suggestions mood={mood} location={location} socialize={socialize} />
                     )
                 }
-
             }
 
         }
